@@ -1,0 +1,38 @@
+html {
+    box-sizing: border-box;
+}
+
+img {
+    max-height: 100%;
+}
+
+.background {
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    font-family: Calibri, Helvetica, sans-serif;  
+}
+
+.header {
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+}
+
+.instructions {
+    height: 200px;
+    text-align: center;
+    font-size: large;
+}
+
+.container {
+    height: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 100px;
+}
+
+.button {
+    height: 200px;
+}
