@@ -4,6 +4,7 @@ html {
 
 img {
     max-height: 100%;
+    max-width: 100%;
 }
 
 .background {
@@ -11,6 +12,14 @@ img {
     display: flex;
     flex-direction: column;
     font-family: Calibri, Helvetica, sans-serif;  
+}
+
+ul {
+    padding-left: 0;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 .header {
@@ -28,11 +37,23 @@ img {
 .container {
     height: 400px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: flex-end;
     padding-bottom: 100px;
+    
 }
 
 .button {
     height: 200px;
+    padding-left: 0px;
+    padding-right: 0px;
+    border-radius: 5px;
+    transition: all .5s;
 }
+
+.playing {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 1rem #ffc600;
+  }
+

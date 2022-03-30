@@ -1,5 +1,3 @@
-let playerScore = 0;
-let computerScore = 0;
 
 // gives computer a random move
 function computerPlay() {
@@ -14,17 +12,16 @@ function computerPlay() {
     }
 }
 
-// prompts player to pick their move
-function playerSelection() {
-    let decision = prompt("What will you choose?", "Rock, Paper, or Scissors");
-    return decision.toLowerCase();
+// prompts player to click their move 
+function playerSelection(string) {
+    return string;
 }
 
 // returns a string of round outcome & updates Score
-function checkGame(player, computer) {
+function gameResults(player, computer) {
         if (player == "rock" && computer == "scissors") {
             playerScore++;
-            return "You Win! Rock beats scissors"
+            return "You Win! Rock beats scissors";
         } else if (player == "scissors" && computer == "paper") {
             playerScore++;
             return "You Win! Scissors beats paper";
@@ -46,19 +43,19 @@ function checkGame(player, computer) {
 }
 
 // plays round of Rock Paper Scissors and alerts outcome
-function playRound() {
-    let player = playerSelection();
+function playRound(button) {
+    let player = playerSelection(button);
     let computer = computerPlay();
 
-    alert(checkGame(player, computer));
+    return (gameResults(player, computer));
 }
 
 // plays 5 rounds, tells outcome of match
-function match() {
+function match(buttonID) {
     let i = 1;
     while (playerScore < 5 && computerScore < 5) {
         console.log("Game " + (i));
-        console.log(playRound());
+        console.log(playRound(buttonID));
         console.log("Player: " + playerScore);
         console.log("Computer: " + computerScore);
         i++;
@@ -73,8 +70,56 @@ function match() {
     }
 }
 
-match();
+/*
+const buttonPaper = document.querySelector('#paper');
+const buttonRock = document.querySelector('#rock');
+const buttonScissors = document.querySelector('#scissors');
 
+buttonPaper.addEventListener('click', function() {
+    playRound(buttonPaper.id);
+});
+buttonRock.addEventListener('click', function() {
+    playRound(buttonRock.id);
+});
+buttonScissors.addEventListener('click', function() {
+    playRound(buttonScissors.id);
+});
+*/
+
+// function that removes animation, only if it is a transform
+function removeTransition(e) {
+    if (e.propertyName !== 'transform') return; // skips it if its not a transform
+    this.classList.remove('playing'); // removes the transition
+}
+
+
+const gameText = document.querySelector('#gameText');
+const buttons = document.querySelectorAll('.button');
+
+let playerScore = 0;
+let computerScore = 0;
+let i = 0;
+
+buttons.forEach((button) => {
+    // and for each one we add a 'click' listener
+    button.addEventListener('click', () => {
+        button.classList.add('playing');
+        if (playerScore < 5 && computerScore < 5) {
+            gameText.innerHTML = "Game " + (i + 1) + 
+            "\n" + playRound(button.id);
+            document.querySelector('#player').innerHTML = "Player Score: " + playerScore;
+            document.querySelector('#computer').innerHTML = "ComputerScore Score: " + computerScore;
+            i++;
+        }
+
+        if (playerScore === 5) {
+            console.log("YOU WON THE MATCH!");
+        } else if (computerScore === 5) {
+            console.log("YOU LOST THE MATCH!");
+        }
+    });
+});
+
+buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
 
 //  || player == "paper" && computer == "rock"):
-

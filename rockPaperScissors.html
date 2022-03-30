@@ -11,14 +11,20 @@
         <div class="instructions">
             <p>You are playing against a computer!</p>
             <p>Go ahead and select your move</p>
-            <p>Best out of 5 wins</p>
+            <p>First to Five wins!</p>
+            <p id="gameText"></p>
         </div>
+        <ul>
+            <li id="player">Player Score: 0</li>
+            <li id="computer">Computer Score: 0</li>
+        </ul>
         <div class="container">
-            <div id="paper" class="button"><img src="./images/paper.png" alt="Paper"></div>
-            <div id="rock" class="button"><img src="./images/rock.png" alt="Rock"></div>
-            <div id="scissors" class="button"><img src="./images/scissors.png" alt="scissors"></div>
+            <button id="paper" class="button"><img src="./images/paper.png" alt="Paper"></button>
+            <button id="rock" class="button"><img src="./images/rock.png" alt="Rock"></button>
+            <button id="scissors" class="button"><img src="./images/scissors.png" alt="scissors"></button>
         </div>
-        <script src="functionsRPS.js"></script>
     </div>
+    <script src="functionsRPS.js" defer></script>
 </body>
 </html>
+
