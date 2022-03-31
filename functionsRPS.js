@@ -121,5 +121,3 @@ buttons.forEach((button) => {
 });
 
 buttons.forEach(button => button.addEventListener('transitionend', removeTransition));
-
-//  || player == "paper" && computer == "rock"):
